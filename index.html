@@ -1,111 +1,242 @@
-
+ 
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bharat Agro Truck Navigation</title>
-<style>
-* {
-    box-sizing: border-box;
-}
-body {
-    margin: 0;
-    padding: 18px;
-    font-family: Arial, sans-serif;
-    background: #eef5ee;
-    color: #17351f;
-    text-align: center;
-}
-.container {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 24px 18px;
-    background: #ffffff;
-    border-radius: 18px;
-    box-shadow: 0 4px 15px #00000018;
-}
-h1 {
-    font-size: 27px;
-    line-height: 1.4;
-}
-p {
-    font-size: 19px;
-    line-height: 1.7;
-}
-.factory {
-    margin: 22px 0;
-    padding: 15px;
-    background: #edf7ed;
-    border-radius: 12px;
-}
-button {
-    display: block;
-    width: 100%;
-    padding: 19px 12px;
-    margin-top: 16px;
-    border: none;
-    border-radius: 12px;
-    background: #16803d;
-    color: #ffffff;
-    font-size: 21px;
-    font-weight: bold;
-    cursor: pointer;
-}
-button:active {
-    background: #105c2b;
-}
-.note {
-    font-size: 15px;
-    color: #555555;
-    margin-top: 22px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bharat Agro Truck Navigation</title>
+
+    <meta
+        name="description"
+        content="Bharat Agro Molecules, Partapur Meerut ke liye Hindi truck navigation aur factory arrival information."
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, "Noto Sans Devanagari", sans-serif;
+            background: #f0f7f1;
+            color: #183322;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 25px 20px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .factory-icon {
+            font-size: 55px;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            margin: 5px 0 15px;
+            font-size: 30px;
+            color: #176b35;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .address {
+            padding: 15px;
+            margin: 20px 0;
+            background: #eef7ee;
+            border: 1px solid #c7e4cb;
+            border-radius: 12px;
+            font-size: 18px;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+
+        .main-button {
+            display: block;
+            width: 100%;
+            padding: 19px 12px;
+            margin: 16px 0;
+            border: none;
+            border-radius: 12px;
+            background: #16833b;
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .main-button:active {
+            transform: scale(0.98);
+        }
+
+        .speech-button {
+            background: #1558a6;
+        }
+
+        .stop-button {
+            background: #a52a2a;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 13px;
+            background: #fff7df;
+            border-radius: 10px;
+            color: #624c12;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .safety {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555555;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+    </style>
 </head>
+
 <body>
-<div class="container">
-    <h1>🚚 Bharat Agro Truck Navigation</h1>
-    <p>फैक्ट्री तक पहुँचने के लिए नीचे दिया गया बटन दबाएँ।</p>
-    <div class="factory">
-        <p><strong>📍 मंज़िल</strong></p>
-        <p>Bharat Agro Molecules</p>
-        <p>उद्योग पुरम, परतापुर, मेरठ, उत्तर प्रदेश</p>
-    </div>
-    <button onclick="startNavigation()">
-        🗺️ हिंदी में रास्ता शुरू करें
-    </button>
-    <button onclick="speakHindi()">
-        🔊 हिंदी में जानकारी सुनें
-    </button>
-    <p id="message" class="note">
-        रास्ता शुरू करने के लिए हरा बटन दबाएँ।
-    </p>
-    <p class="note">
-        फैक्ट्री पहुँचने पर कर्मचारी आपको ट्रक एंट्री गेट तक रास्ता बताएँगे।
-    </p>
-</div>
-<script>
-function startNavigation() {
-    const destination = "Bharat Agro Molecules, E-33 to E-36, Udyog Puram Industrial Area, Delhi Road, Partapur, Meerut, Uttar Pradesh 250103";
-    document.getElementById("message").textContent = "Google Maps खोला जा रहा है...";
-    const url = "https://www.google.com/maps/dir/?api=1"
-        + "&destination=" + encodeURIComponent(destination)
-        + "&travelmode=driving&dir_action=navigate";
-    window.location.href = url;
-}
-function speakHindi() {
-    if (!("speechSynthesis" in window)) {
-        alert("आपके ब्राउज़र में आवाज़ की सुविधा उपलब्ध नहीं है।");
-        return;
-    }
-    window.speechSynthesis.cancel();
-    const message = new SpeechSynthesisUtterance(
-        "नमस्ते ड्राइवर जी। आपको भारत एग्रो मॉलिक्यूल्स, उद्योग पुरम, परतापुर, मेरठ जाना है। रास्ता शुरू करने के लिए हरा बटन दबाएँ। फैक्ट्री पहुँचने पर कर्मचारी आपको ट्रक एंट्री गेट तक रास्ता बताएँगे।"
-    );
-    message.lang = "hi-IN";
-    message.rate = 0.9;
-    window.speechSynthesis.speak(message);
-}
-</script>
+    <main class="container">
+
+        <div class="factory-icon">🏭</div>
+
+        <h1>Bharat Agro Truck Navigation</h1>
+
+        <p class="subtitle">
+            नमस्कार ड्राइवर साहब!<br>
+            फैक्टरी तक पहुँचने के लिए नीचे दिए गए बटन का उपयोग करें।
+        </p>
+
+        <div class="address">
+            <strong>फैक्टरी का पता</strong><br>
+            Bharat Agro Molecules<br>
+            E-33 से E-36, Udyog Puram Industrial Area<br>
+            Delhi Road, Partapur<br>
+            Meerut, Uttar Pradesh - 250103
+        </div>
+
+        <button
+            class="main-button"
+            type="button"
+            onclick="startNavigation()"
+        >
+            🗺️ हिंदी में रास्ता शुरू करें
+        </button>
+
+        <button
+            class="main-button speech-button"
+            type="button"
+            onclick="speakFactoryInfo()"
+        >
+            🔊 हिंदी में फैक्टरी की जानकारी सुनें
+        </button>
+
+        <button
+            class="main-button stop-button"
+            type="button"
+            onclick="stopSpeaking()"
+        >
+            ⏹️ आवाज़ बंद करें
+        </button>
+
+        <div class="note">
+            <strong>फैक्टरी पहुँचने पर:</strong><br>
+            वहाँ के कर्मचारी आपको सही प्रवेश गेट तक पहुँचने में मदद करेंगे।
+            रास्ते में किसी सहायता की जरूरत हो तो फैक्टरी पहुँचकर कर्मचारियों से संपर्क करें।
+        </div>
+
+        <p class="safety">
+            ⚠️ सुरक्षा सूचना: गाड़ी चलाते समय मोबाइल फोन हाथ में न लें।
+            रास्ता शुरू करने से पहले वाहन सुरक्षित स्थान पर रोककर निर्देश देख लें।
+        </p>
+
+        <footer>
+            Bharat Agro Molecules · Partapur, Meerut
+        </footer>
+
+    </main>
+
+    <script>
+        function startNavigation() {
+            const destination =
+                "Bharat Agro Molecules, E-33 to E-36, Udyog Puram Industrial Area, Delhi Road, Partapur, Meerut, Uttar Pradesh 250103";
+
+            const url =
+                "https://www.google.com/maps/dir/?api=1" +
+                "&destination=" + encodeURIComponent(destination) +
+                "&travelmode=driving&dir_action=navigate";
+
+            window.open(url, "_blank");
+        }
+
+        function speakFactoryInfo() {
+            if (!("speechSynthesis" in window)) {
+                alert(
+                    "आपके ब्राउज़र में आवाज़ सुनाने की सुविधा उपलब्ध नहीं है।"
+                );
+                return;
+            }
+
+            window.speechSynthesis.cancel();
+
+            const message =
+                "नमस्कार ड्राइवर साहब। " +
+                "आपको भारत एग्रो मॉलिक्यूल्स फैक्टरी में कच्चा माल पहुँचाना है। " +
+                "फैक्टरी का पता है, " +
+                "ई तैंतीस से ई छत्तीस, " +
+                "उद्योग पुरम इंडस्ट्रियल एरिया, " +
+                "दिल्ली रोड, परतापुर, मेरठ, उत्तर प्रदेश। " +
+                "कृपया गूगल मैप पर दिखाए गए रास्ते का पालन करें। " +
+                "फैक्टरी पहुँचने पर वहाँ के कर्मचारी आपको प्रवेश गेट तक पहुँचने में मदद करेंगे। " +
+                "गाड़ी चलाते समय मोबाइल फोन का इस्तेमाल न करें। " +
+                "आपकी यात्रा सुरक्षित और शुभ हो।";
+
+            const speech = new SpeechSynthesisUtterance(message);
+
+            speech.lang = "hi-IN";
+            speech.rate = 0.85;
+            speech.pitch = 1;
+            speech.volume = 1;
+
+            const voices = window.speechSynthesis.getVoices();
+
+            const hindiVoice = voices.find(function(voice) {
+                return voice.lang &&
+                    voice.lang.toLowerCase().startsWith("hi");
+            });
+
+            if (hindiVoice) {
+                speech.voice = hindiVoice;
+            }
+
+            window.speechSynthesis.speak(speech);
+        }
+
+        function stopSpeaking() {
+            if ("speechSynthesis" in window) {
+                window.speechSynthesis.cancel();
+            }
+        }
+    </script>
 </body>
 </html>
