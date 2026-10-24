@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Agro Truck Navigation</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 18px;
+    font-family: Arial, sans-serif;
+    background: #eef5ee;
+    color: #17351f;
+    text-align: center;
+}
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 24px 18px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px #00000018;
+}
+h1 {
+    font-size: 27px;
+    line-height: 1.4;
+}
+p {
+    font-size: 19px;
+    line-height: 1.7;
+}
+.factory {
+    margin: 22px 0;
+    padding: 15px;
+    background: #edf7ed;
+    border-radius: 12px;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 19px 12px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #16803d;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:active {
+    background: #105c2b;
+}
+.note {
+    font-size: 15px;
+    color: #555555;
+    margin-top: 22px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>🚚 Bharat Agro Truck Navigation</h1>
+    <p>फैक्ट्री तक पहुँचने के लिए नीचे दिया गया बटन दबाएँ।</p>
+    <div class="factory">
+        <p><strong>📍 मंज़िल</strong></p>
+        <p>Bharat Agro Molecules</p>
+        <p>उद्योग पुरम, परतापुर, मेरठ, उत्तर प्रदेश</p>
+    </div>
+    <button onclick="startNavigation()">
+        🗺️ हिंदी में रास्ता शुरू करें
+    </button>
+    <button onclick="speakHindi()">
+        🔊 हिंदी में जानकारी सुनें
+    </button>
+    <p id="message" class="note">
+        रास्ता शुरू करने के लिए हरा बटन दबाएँ।
+    </p>
+    <p class="note">
+        फैक्ट्री पहुँचने पर कर्मचारी आपको ट्रक एंट्री गेट तक रास्ता बताएँगे।
+    </p>
+</div>
+<script>
+function startNavigation() {
+    const destination = "Bharat Agro Molecules, E-33 to E-36, Udyog Puram Industrial Area, Delhi Road, Partapur, Meerut, Uttar Pradesh 250103";
+    document.getElementById("message").textContent = "Google Maps खोला जा रहा है...";
+    const url = "https://www.google.com/maps/dir/?api=1"
+        + "&destination=" + encodeURIComponent(destination)
+        + "&travelmode=driving&dir_action=navigate";
+    window.location.href = url;
+}
+function speakHindi() {
+    if (!("speechSynthesis" in window)) {
+        alert("आपके ब्राउज़र में आवाज़ की सुविधा उपलब्ध नहीं है।");
+        return;
+    }
+    window.speechSynthesis.cancel();
+    const message = new SpeechSynthesisUtterance(
+        "नमस्ते ड्राइवर जी। आपको भारत एग्रो मॉलिक्यूल्स, उद्योग पुरम, परतापुर, मेरठ जाना है। रास्ता शुरू करने के लिए हरा बटन दबाएँ। फैक्ट्री पहुँचने पर कर्मचारी आपको ट्रक एंट्री गेट तक रास्ता बताएँगे।"
+    );
+    message.lang = "hi-IN";
+    message.rate = 0.9;
+    window.speechSynthesis.speak(message);
+}
+</script>
+</body>
+</html>
