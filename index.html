@@ -2,241 +2,447 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bharat Agro Truck Navigation</title>
 
-    <title>Bharat Agro Truck Navigation</title>
+  <style>
+    * { box-sizing: border-box; }
 
-    <meta
-        name="description"
-        content="Bharat Agro Molecules, Partapur Meerut ke liye Hindi truck navigation aur factory arrival information."
-    >
+    body {
+      margin: 0;
+      padding: 18px;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      background: #f1f7f1;
+      color: #202820;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    .container {
+      max-width: 650px;
+      margin: 15px auto;
+      padding: 22px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px #00000015;
+    }
 
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, "Noto Sans Devanagari", sans-serif;
-            background: #f0f7f1;
-            color: #183322;
-            text-align: center;
-        }
+    h1 {
+      text-align: center;
+      color: #176b32;
+      font-size: 28px;
+    }
 
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 25px 20px;
-            background: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
-        }
+    .subtitle { text-align: center; }
 
-        .factory-icon {
-            font-size: 55px;
-            margin-bottom: 8px;
-        }
+    .address, .note, .status {
+      padding: 14px;
+      margin: 18px 0;
+      border-radius: 8px;
+    }
 
-        h1 {
-            margin: 5px 0 15px;
-            font-size: 30px;
-            color: #176b35;
-        }
+    .address {
+      background: #eef8ef;
+      border-left: 5px solid #23823e;
+    }
 
-        .subtitle {
-            font-size: 20px;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
+    .note {
+      background: #fff6df;
+      border-left: 5px solid #e0a000;
+      font-size: 16px;
+    }
 
-        .address {
-            padding: 15px;
-            margin: 20px 0;
-            background: #eef7ee;
-            border: 1px solid #c7e4cb;
-            border-radius: 12px;
-            font-size: 18px;
-            line-height: 1.8;
-            overflow-wrap: anywhere;
-        }
+    .status {
+      background: #edf3ff;
+      overflow-wrap: anywhere;
+    }
 
-        .main-button {
-            display: block;
-            width: 100%;
-            padding: 19px 12px;
-            margin: 16px 0;
-            border: none;
-            border-radius: 12px;
-            background: #16833b;
-            color: white;
-            font-size: 21px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px 10px;
+      margin: 12px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-        .main-button:active {
-            transform: scale(0.98);
-        }
+    .navigate { background: #176b32; color: white; }
+    .speak { background: #1557a6; color: white; }
+    .stop { background: #b52b2b; color: white; }
+    .share { background: #128c50; color: white; }
+    .alert { background: #8b3fc5; color: white; }
 
-        .speech-button {
-            background: #1558a6;
-        }
-
-        .stop-button {
-            background: #a52a2a;
-        }
-
-        .note {
-            margin-top: 20px;
-            padding: 13px;
-            background: #fff7df;
-            border-radius: 10px;
-            color: #624c12;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        .safety {
-            margin-top: 20px;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #555555;
-        }
-
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666666;
-        }
-    </style>
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
-    <main class="container">
+  <main class="container">
+    <h1>🚚 Bharat Agro Truck Navigation</h1>
+    <p class="subtitle">फैक्टरी तक हिंदी नेविगेशन सहायता</p>
 
-        <div class="factory-icon">🏭</div>
+    <section class="address">
+      <strong>🏭 Bharat Agro Molecules</strong><br>
+      E-33 to E-36, Udyog Puram Industrial Area,<br>
+      Delhi Road, Partapur,<br>
+      Meerut, Uttar Pradesh - 250103
+    </section>
 
-        <h1>Bharat Agro Truck Navigation</h1>
+    <a
+      class="btn navigate"
+      href="https://www.google.com/maps/dir/?api=1&destination=28.921294%2C77.6559614&travelmode=driving&dir_action=navigate"
+      target="_blank"
+      rel="noopener noreferrer">
+      🗺️ रास्ता और Google Maps आवाज़ शुरू करें
+    </a>
 
-        <p class="subtitle">
-            नमस्कार ड्राइवर साहब!<br>
-            फैक्टरी तक पहुँचने के लिए नीचे दिए गए बटन का उपयोग करें।
-        </p>
+    <button class="btn alert" id="startAlert">
+      📍 1 किलोमीटर पहले हिंदी अलर्ट चालू करें
+    </button>
 
-        <div class="address">
-            <strong>फैक्टरी का पता</strong><br>
-            Bharat Agro Molecules<br>
-            E-33 से E-36, Udyog Puram Industrial Area<br>
-            Delhi Road, Partapur<br>
-            Meerut, Uttar Pradesh - 250103
-        </div>
+    <button class="btn stop" id="stopAlert">
+      ⏹️ लोकेशन अलर्ट बंद करें
+    </button>
 
-        <button
-            class="main-button"
-            type="button"
-            onclick="startNavigation()"
-        >
-            🗺️ हिंदी में रास्ता शुरू करें
-        </button>
+    <div class="status" id="status" aria-live="polite">
+      लोकेशन अलर्ट अभी बंद है।
+    </div>
 
-        <button
-            class="main-button speech-button"
-            type="button"
-            onclick="speakFactoryInfo()"
-        >
-            🔊 हिंदी में फैक्टरी की जानकारी सुनें
-        </button>
+    <button class="btn speak" id="speakButton">
+      🔊 हिंदी में फैक्टरी की जानकारी सुनें
+    </button>
 
-        <button
-            class="main-button stop-button"
-            type="button"
-            onclick="stopSpeaking()"
-        >
-            ⏹️ आवाज़ बंद करें
-        </button>
+    <button class="btn stop" id="stopVoice">
+      ⏹️ आवाज़ बंद करें
+    </button>
 
-        <div class="note">
-            <strong>फैक्टरी पहुँचने पर:</strong><br>
-            वहाँ के कर्मचारी आपको सही प्रवेश गेट तक पहुँचने में मदद करेंगे।
-            रास्ते में किसी सहायता की जरूरत हो तो फैक्टरी पहुँचकर कर्मचारियों से संपर्क करें।
-        </div>
+    <button class="btn share" id="shareButton">
+      📲 WhatsApp पर वेबसाइट शेयर करें
+    </button>
 
-        <p class="safety">
-            ⚠️ सुरक्षा सूचना: गाड़ी चलाते समय मोबाइल फोन हाथ में न लें।
-            रास्ता शुरू करने से पहले वाहन सुरक्षित स्थान पर रोककर निर्देश देख लें।
-        </p>
+    <section class="note">
+      <strong>ट्रक ड्राइवर के लिए सूचना</strong>
+      <p>
+        Google Maps में नेविगेशन शुरू करें और हिंदी आवाज़ चुनें।
+        ट्रक की ऊँचाई, वजन और सड़क प्रतिबंधों की जाँच करें।
+      </p>
+      <p>
+        लोकेशन अलर्ट के लिए फोन की लोकेशन अनुमति दें और वेबसाइट
+        खुली रखें। स्क्रीन लॉक होने या ब्राउज़र बैकग्राउंड में
+        जाने पर अलर्ट रुक सकता है।
+      </p>
+    </section>
 
-        <footer>
-            Bharat Agro Molecules · Partapur, Meerut
-        </footer>
+    <footer>
+      सुरक्षित यात्रा करें। धन्यवाद!<br>
+      Bharat Agro Molecules, Partapur, Meerut
+    </footer>
+  </main>
 
-    </main>
+  <script>
+    const DEST_LAT = 28.921294;
+    const DEST_LON = 77.6559614;
+    const ALERT_DISTANCE = 1000;
+    const STOP_DISTANCE = 100;
 
-    <script>
-        function startNavigation() {
-            const destination =
-                "Bharat Agro Molecules, E-33 to E-36, Udyog Puram Industrial Area, Delhi Road, Partapur, Meerut, Uttar Pradesh 250103";
+    const factoryMessage =
+      "नमस्कार ड्राइवर साहब। आपको भारत एग्रो मॉलिक्यूल्स फैक्टरी में " +
+      "कच्चा माल पहुँचाना है। पता है ई तैंतीस से ई छत्तीस, " +
+      "उद्योग पुरम इंडस्ट्रियल एरिया, परतापुर, मेरठ। " +
+      "रास्ते के लिए गूगल मैप्स में नेविगेशन शुरू करें। " +
+      "ट्रक की ऊँचाई, वजन और सड़क प्रतिबंधों का ध्यान रखें।";
 
-            const url =
-                "https://www.google.com/maps/dir/?api=1" +
-                "&destination=" + encodeURIComponent(destination) +
-                "&travelmode=driving&dir_action=navigate";
+    let watchId = null;
+    let alertTimer = null;
+    let insideAlertZone = false;
+    let alertStoppedNearFactory = false;
+    let lastPosition = null;
+    let lastAlertTime = 0;
 
-            window.open(url, "_blank");
-        }
+    const statusBox = document.getElementById("status");
 
-        function speakFactoryInfo() {
-            if (!("speechSynthesis" in window)) {
-                alert(
-                    "आपके ब्राउज़र में आवाज़ सुनाने की सुविधा उपलब्ध नहीं है।"
-                );
-                return;
+    function speakHindi(message) {
+      if (!("speechSynthesis" in window)) {
+        statusBox.textContent =
+          "इस ब्राउज़र में हिंदी आवाज़ उपलब्ध नहीं है।";
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(message);
+      utterance.lang = "hi-IN";
+      utterance.rate = 0.85;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function distanceInMeters(lat1, lon1, lat2, lon2) {
+      const toRad = value => value * Math.PI / 180;
+      const earthRadius = 6371000;
+
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+
+      const a =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos(toRad(lat1)) *
+        Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) ** 2;
+
+      return earthRadius * 2 *
+        Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    function stopLocationAlert(showMessage = true) {
+      if (watchId !== null) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
+      }
+
+      if (alertTimer !== null) {
+        clearInterval(alertTimer);
+        alertTimer = null;
+      }
+
+      insideAlertZone = false;
+
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+
+      if (showMessage) {
+        statusBox.textContent = "लोकेशन अलर्ट बंद कर दिया गया है।";
+      }
+    }
+
+    function startLocationAlert() {
+      if (!window.isSecureContext) {
+        statusBox.textContent =
+          "लोकेशन के लिए HTTPS वेबसाइट खोलें।";
+        return;
+      }
+
+      if (!("geolocation" in navigator)) {
+        statusBox.textContent =
+          "इस ब्राउज़र में लोकेशन सुविधा उपलब्ध नहीं है।";
+        return;
+      }
+
+      if (watchId !== null) {
+        statusBox.textContent = "लोकेशन अलर्ट पहले से चालू है।";
+        return;
+      }
+
+      alertStoppedNearFactory = false;
+      lastPosition = null;
+      lastAlertTime = 0;
+
+      statusBox.textContent =
+        "आपकी लोकेशन की अनुमति का इंतज़ार है...";
+
+      watchId = navigator.geolocation.watchPosition(
+        function(position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          const accuracy = position.coords.accuracy;
+
+          const distance = distanceInMeters(
+            lat, lon, DEST_LAT, DEST_LON
+          );
+
+          lastPosition = { lat, lon };
+
+          if (alertStoppedNearFactory) {
+            statusBox.textContent =
+              "आप फैक्टरी के बहुत पास पहुँच चुके हैं। " +
+              "लोकेशन अलर्ट अपने आप बंद हो गया है।";
+            return;
+          }
+
+          if (distance <= STOP_DISTANCE) {
+            alertStoppedNearFactory = true;
+
+            if (alertTimer !== null) {
+              clearInterval(alertTimer);
+              alertTimer = null;
             }
 
-            window.speechSynthesis.cancel();
+            insideAlertZone = false;
 
-            const message =
-                "नमस्कार ड्राइवर साहब। " +
-                "आपको भारत एग्रो मॉलिक्यूल्स फैक्टरी में कच्चा माल पहुँचाना है। " +
-                "फैक्टरी का पता है, " +
-                "ई तैंतीस से ई छत्तीस, " +
-                "उद्योग पुरम इंडस्ट्रियल एरिया, " +
-                "दिल्ली रोड, परतापुर, मेरठ, उत्तर प्रदेश। " +
-                "कृपया गूगल मैप पर दिखाए गए रास्ते का पालन करें। " +
-                "फैक्टरी पहुँचने पर वहाँ के कर्मचारी आपको प्रवेश गेट तक पहुँचने में मदद करेंगे। " +
-                "गाड़ी चलाते समय मोबाइल फोन का इस्तेमाल न करें। " +
-                "आपकी यात्रा सुरक्षित और शुभ हो।";
-
-            const speech = new SpeechSynthesisUtterance(message);
-
-            speech.lang = "hi-IN";
-            speech.rate = 0.85;
-            speech.pitch = 1;
-            speech.volume = 1;
-
-            const voices = window.speechSynthesis.getVoices();
-
-            const hindiVoice = voices.find(function(voice) {
-                return voice.lang &&
-                    voice.lang.toLowerCase().startsWith("hi");
-            });
-
-            if (hindiVoice) {
-                speech.voice = hindiVoice;
-            }
-
-            window.speechSynthesis.speak(speech);
-        }
-
-        function stopSpeaking() {
             if ("speechSynthesis" in window) {
-                window.speechSynthesis.cancel();
+              window.speechSynthesis.cancel();
             }
+
+            statusBox.textContent =
+              "लोकेशन के अनुसार आप फैक्टरी के बहुत पास हैं। " +
+              "अलर्ट बंद कर दिया गया है।";
+            return;
+          }
+
+          statusBox.textContent =
+            "फैक्टरी की सीधी दूरी: लगभग " +
+            Math.round(distance) + " मीटर। " +
+            "GPS सटीकता लगभग " + Math.round(accuracy) +
+            " मीटर है।";
+
+          if (distance <= ALERT_DISTANCE) {
+            if (!insideAlertZone) {
+              insideAlertZone = true;
+              lastAlertTime = 0;
+
+              speakHindi(
+                "सावधान ड्राइवर साहब। भारत एग्रो मॉलिक्यूल्स " +
+                "फैक्टरी लगभग एक किलोमीटर दूर है। " +
+                "धीरे चलें और रास्ते पर ध्यान दें।"
+              );
+
+              lastAlertTime = Date.now();
+
+              if (alertTimer !== null) {
+                clearInterval(alertTimer);
+              }
+
+              alertTimer = setInterval(function() {
+                if (
+                  insideAlertZone &&
+                  !alertStoppedNearFactory &&
+                  lastPosition
+                ) {
+                  const currentDistance = distanceInMeters(
+                    lastPosition.lat,
+                    lastPosition.lon,
+                    DEST_LAT,
+                    DEST_LON
+                  );
+
+                  if (
+                    currentDistance <= ALERT_DISTANCE &&
+                    currentDistance > STOP_DISTANCE
+                  ) {
+                    speakHindi(
+                      "सावधान। भारत एग्रो मॉलिक्यूल्स फैक्टरी " +
+                      "पास आ रही है। कृपया धीरे चलें और " +
+                      "रास्ते पर ध्यान दें।"
+                    );
+                  }
+                }
+              }, 30000);
+            }
+          } else if (insideAlertZone) {
+            insideAlertZone = false;
+
+            if (alertTimer !== null) {
+              clearInterval(alertTimer);
+              alertTimer = null;
+            }
+
+            if ("speechSynthesis" in window) {
+              window.speechSynthesis.cancel();
+            }
+
+            statusBox.textContent =
+              "आप फैक्टरी से 1 किलोमीटर से बाहर हैं। " +
+              "लोकेशन अलर्ट फिर से दूरी कम होने पर शुरू होगा।";
+          }
+        },
+
+        function(error) {
+          let message = "लोकेशन प्राप्त नहीं हो सकी।";
+
+          if (error.code === 1) {
+            message =
+              "लोकेशन अनुमति नहीं मिली। ब्राउज़र सेटिंग में अनुमति दें।";
+          } else if (error.code === 2) {
+            message =
+              "फोन की लोकेशन उपलब्ध नहीं है। GPS चालू करें।";
+          } else if (error.code === 3) {
+            message =
+              "लोकेशन मिलने में समय लगा। दोबारा कोशिश करें।";
+          }
+
+          statusBox.textContent = message;
+
+          if (watchId !== null) {
+            navigator.geolocation.clearWatch(watchId);
+            watchId = null;
+          }
+        },
+
+        {
+          enableHighAccuracy: true,
+          maximumAge: 3000,
+          timeout: 20000
         }
-    </script>
+      );
+    }
+
+    document.getElementById("startAlert")
+      .addEventListener("click", startLocationAlert);
+
+    document.getElementById("stopAlert")
+      .addEventListener("click", function() {
+        stopLocationAlert(true);
+      });
+
+    document.getElementById("speakButton")
+      .addEventListener("click", function() {
+        speakHindi(factoryMessage);
+      });
+
+    document.getElementById("stopVoice")
+      .addEventListener("click", function() {
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      });
+
+    document.getElementById("shareButton")
+      .addEventListener("click", async function() {
+        const pageUrl =
+          "https://agrimline-ship-it.github.io/bharat-agro-navigation/";
+
+        const message =
+          "Bharat Agro Truck Navigation\n" +
+          "फैक्टरी तक रास्ता खोलें:\n" + pageUrl;
+
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: "Bharat Agro Truck Navigation",
+              text: message,
+              url: pageUrl
+            });
+          } catch (error) {
+            if (error.name !== "AbortError") {
+              window.open(
+                "https://wa.me/?text=" +
+                encodeURIComponent(message),
+                "_blank"
+              );
+            }
+          }
+        } else {
+          window.open(
+            "https://wa.me/?text=" +
+            encodeURIComponent(message),
+            "_blank"
+          );
+        }
+      });
+  </script>
 </body>
 </html>
